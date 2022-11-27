@@ -30,7 +30,7 @@ const Details = () => {
         ?.filter((i) => i.id === id)
         .map((a) => {
           return (
-            <Card sx={{ maxWidth: 600 }}>
+            <Card sx={{ maxWidth: 600 }} key={a.id}>
               <CardMedia
                 component="img"
                 height="400"
