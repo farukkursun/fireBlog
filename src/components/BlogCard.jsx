@@ -9,7 +9,7 @@ import { useFetch } from "../helper/firebase";
 import { useNavigate } from "react-router-dom";
 
 const BlogCard = () => {
-  const { istLoading, blogList } = useFetch();
+  const {  blogList } = useFetch();
   console.log(blogList);
   const navigate = useNavigate();
   

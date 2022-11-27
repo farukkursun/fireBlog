@@ -35,7 +35,7 @@ const Navbar = () => {
             <Typography
               variant="h6"
               noWrap
-              // component="a"
+              
              
               sx={{
                 mr: 2,

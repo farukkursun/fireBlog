@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,10 +9,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import blok from "../assets/blok.png";
 
-import { AuthCont } from "../contexts/AuthContext";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+
+
+import { useLocation, useNavigate } from "react-router-dom";
 import { UpdateUser} from "../helper/firebase";
 import { TextareaAutosize } from "@mui/material";
 
@@ -22,7 +22,7 @@ const UpdateBlog = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
  
-  const { currentUser } = useContext(AuthCont);
+  
   console.log(state);
 
   const [tittle, setTittle] = useState(state.a.tittle);

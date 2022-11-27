@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { DeleteUser, useFetch } from "../helper/firebase";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,7 +11,7 @@ import { AuthCont } from "../contexts/AuthContext";
 
 const Details = () => {
   const navigate=useNavigate()
-  const { istLoading, blogList } = useFetch();
+  const { blogList } = useFetch();
   const { currentUser } = useContext(AuthCont);
   console.log(blogList);
   const { id } = useParams();
