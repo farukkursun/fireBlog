@@ -1,7 +1,7 @@
 .blogcard{
   margin-top: 2rem;
   display: flex;
-  flex-direction: row;
+  
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -9,12 +9,12 @@
   
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .blogcard {
     flex-direction: column;
     align-items: center;
   }
-}
+} */
 .details{
   display: flex;
   flex-direction: column;
