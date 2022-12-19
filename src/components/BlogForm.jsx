@@ -24,10 +24,9 @@ const BlogForm = () => {
 
 
 
-const heute=[new Date()]
-const a=heute.join(' ')
-console.log(a);
-const newdate= a.slice(4,15)
+
+
+  const newdate=new Date().toDateString().slice(4)
 
 
   const { currentUser } = useContext(AuthCont);
