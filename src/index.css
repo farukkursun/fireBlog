@@ -25,3 +25,10 @@
 .text{
   color:rgb(69, 169, 236);
 }
+.profile{
+  display: flex;
+  justify-content: center;
+ margin-top: 6rem;
+
+
+}

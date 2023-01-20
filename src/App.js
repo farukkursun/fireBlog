@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import AuthContext from "./contexts/AuthContext";
 import Router from "./router/Router";
 
@@ -9,6 +10,7 @@ function App() {
     <div>
     <AuthContext>
        <Router/> 
+       <ToastContainer/>
     </AuthContext>
    
     </div>

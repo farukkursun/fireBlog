@@ -13,6 +13,7 @@ import {
 
 import { getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
 import { useEffect, useState } from "react";
+import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "./toastNotify";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -38,9 +39,10 @@ export const createUser = async (email, password, navigate) => {
       password
     );
     navigate("/");
+    toastSuccessNotify("Registered successfully");
     console.log(userCreat);
   } catch (error) {
-    alert(error.message);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -50,8 +52,9 @@ export const signIn = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     navigate("/");
+    toastSuccessNotify("Logged in successfully!");
   } catch (error) {
-    alert(error.message);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -72,6 +75,7 @@ export const userObserver = (setCurrentUser) => {
 
 export const logOut = () => {
   signOut(auth);
+  toastSuccessNotify("Logged out successfully!");
 };
 
 //google ile girme
@@ -81,9 +85,10 @@ export const signInWithGoogle = (navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
+      toastSuccessNotify("Logged in successfully!")
     })
     .catch((error) => {
-      console.log(error);
+      toastErrorNotify(error);
     });
 };
 
@@ -93,10 +98,10 @@ export const forgotPassword = (email) => {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       // Password reset email sent!
-      alert("please check your mail box");
+      toastWarnNotify("please check your mail box");
     })
     .catch((error) => {
-      console.log(error);
+      toastErrorNotify(error);
     });
 };
 
@@ -116,6 +121,7 @@ export const addUser = (tittle, image, content, user, newdate,navigate) => {
     newdate: newdate,
   });
   navigate('/')
+  toastSuccessNotify("Datebase successfully created");
 };
 
 //veriyi ekrana yazma
@@ -149,6 +155,7 @@ export const DeleteUser = (id,navigate) => {
   const db = getDatabase(app);
   remove(ref(db, "users/" + id));
   navigate('/')
+  toastSuccessNotify("Datebase successfully deleted");
   // Toastify('Deleted User')
 };
 
@@ -168,6 +175,7 @@ console.log(a);
 const newdate= a.slice(4,15)
   updates["users/" + id] = {id, image, tittle, content,user,newdate};
   navigate('/')
+  toastSuccessNotify("Datebase successfully update");
   return update(ref(db), updates);
   
 };

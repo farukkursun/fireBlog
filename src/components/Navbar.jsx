@@ -48,7 +48,7 @@ const Navbar = () => {
               }}
             >
               <Link style={{ textDecoration: "none", color: "white" }} to="/">
-                CLARUSWAY
+                FARUK KURSUN
               </Link>
             </Typography>
 
