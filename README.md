@@ -17,7 +17,7 @@ Responsive FireBlog App made using React and Tailwind.
 ### Installation Options
 
 ```
-$ git clone https://github.com/HilalVildan/Movie-App.git
+$ git clone https://github.com/farukkursun/fireBlog
 ```
 
 ```
@@ -31,7 +31,7 @@ $ npm start
 ### Or
 
 ```
-$ git clone https://github.com/HilalVildan/Movie-App.git
+$ git clone https://github.com/farukkursun/fireBlog
 ```
 
 ```
@@ -46,6 +46,6 @@ $ yarn start
 
 ### Demo
 
-#### [View Demo](https://movie-ojtj81w0f-hilalvildan.vercel.app/)
+#### [View Demo](https://farukfireblog.netlify.app/)
 
-![Demo](/src/assets/video.gif)
+![Demo](/src/assets/fireblog.gif)
