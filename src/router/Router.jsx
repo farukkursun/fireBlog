@@ -17,12 +17,22 @@ const Router = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/new" element={<NewBlog />} />
+
+        <Route path="/profile" element={<PrivatRouter />}>
+          <Route path="" element={<Profile />} />
+        </Route>
+
+        <Route path="/new" element={<PrivatRouter />}>
+          <Route path="" element={<NewBlog />} />
+        </Route>
+
         <Route path="/details/:id" element={<PrivatRouter />}>
           <Route path="" element={<Details />} />
         </Route>
-        <Route path="/updateblog/:id" element={<UpdateBlog />} />
+
+        <Route path="/updateblog/:id" element={<PrivatRouter />}>
+          <Route path="" element={<UpdateBlog />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

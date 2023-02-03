@@ -15,30 +15,23 @@ import { AuthCont } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { TextareaAutosize } from "@mui/material";
 
-
-
 const theme = createTheme();
 
 const BlogForm = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
-
-
-
-
-  const newdate=new Date().toDateString().slice(4)
-
+  const newdate = new Date().toDateString().slice(4);
 
   const { currentUser } = useContext(AuthCont);
-  const user = currentUser.email
- 
+  const user = currentUser.email;
+
   const [tittle, setTittle] = useState("");
   const [image, setImage] = useState("");
   const [content, setContent] = useState("");
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    addUser(tittle, image, content,user,newdate,navigate);
+    addUser(tittle, image, content, user, newdate, navigate);
   };
 
   return (
@@ -85,18 +78,17 @@ const BlogForm = () => {
                 label="image URL"
                 id="image"
               />
-               <TextareaAutosize
+              <TextareaAutosize
                 margin="normal"
                 type="text"
                 required
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                
-              minRows={5}
-              maxRows={15}
-              style={{ width: 400 }}
+                minRows={5}
+                maxRows={15}
+                style={{ width: 400 }}
                 id="content"
-                // label="Content"
+                label="Content"
                 name="content"
                 autoFocus
               />
