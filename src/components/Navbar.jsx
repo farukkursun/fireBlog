@@ -18,6 +18,7 @@ import { AuthCont } from "../contexts/AuthContext";
 const Navbar = () => {
   const { currentUser } = useContext(AuthCont);
   console.log(currentUser);
+  
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -35,15 +36,13 @@ const Navbar = () => {
             <Typography
               variant="h6"
               noWrap
-              
-             
               sx={{
                 mr: 2,
 
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                
+
                 textDecoration: "none",
               }}
             >

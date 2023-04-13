@@ -22,8 +22,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email, password, navigate);
@@ -121,7 +119,6 @@ const Login = () => {
                 </Button>
 
                 <Button
-                 
                   onClick={() => forgotPassword(email)}
                   sx={{ color: "blue", mb: 1 }}
                 >

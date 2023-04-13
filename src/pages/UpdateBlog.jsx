@@ -10,10 +10,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-
-
-import { useLocation, useNavigate } from "react-router-dom";
-import { UpdateUser} from "../helper/firebase";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { UpdateUser } from "../helper/firebase";
 import { TextareaAutosize } from "@mui/material";
 
 const theme = createTheme();
@@ -21,8 +19,7 @@ const theme = createTheme();
 const UpdateBlog = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
- 
-  
+
   console.log(state);
 
   const [tittle, setTittle] = useState(state.a.tittle);
@@ -31,12 +28,11 @@ const UpdateBlog = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    UpdateUser(state.a.id, tittle, image, content,state.a.user, navigate);
+    UpdateUser(state.a.id, tittle, image, content, state.a.user, navigate);
   };
 
   return (
     <div>
-    
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -49,7 +45,7 @@ const UpdateBlog = () => {
             }}
           >
             <img src={state.a.image} alt="blok" />
-            <Typography component="h1" variant="h5" sx={{mt:2}}>
+            <Typography component="h1" variant="h5" sx={{ mt: 2 }}>
               UPDATE BLOG
             </Typography>
             <Box
@@ -85,10 +81,9 @@ const UpdateBlog = () => {
                 required
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                
-              minRows={5}
-              maxRows={15}
-              style={{ width: 400 }}
+                minRows={5}
+                maxRows={15}
+                style={{ width: 400 }}
                 id="content"
                 // label="Content"
                 name="content"
@@ -96,17 +91,25 @@ const UpdateBlog = () => {
               />
               <Button
                 type="submit"
-                fullWidth
+               
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
                 Update
               </Button>
+              <Button
+                type="button"
+                width=''
+                variant="contained"
+                sx={{ mt: 3, mb: 2, ml:2}}
+              >
+                <Link className="goback" to={-1}>Back</Link>
+              </Button>
             </Box>
           </Box>
         </Container>
       </ThemeProvider>
-      ) 
+      )
     </div>
   );
 };

@@ -11,9 +11,21 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { getDatabase, onValue, push, ref, remove, set, update } from "firebase/database";
+import {
+  getDatabase,
+  onValue,
+  push,
+  ref,
+  remove,
+  set,
+  update,
+} from "firebase/database";
 import { useEffect, useState } from "react";
-import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "./toastNotify";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "./toastNotify";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,7 +34,7 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId:process.env.REACT_APP_APP_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
@@ -85,7 +97,7 @@ export const signInWithGoogle = (navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
-      toastSuccessNotify("Logged in successfully!")
+      toastSuccessNotify("Logged in successfully!");
     })
     .catch((error) => {
       toastErrorNotify(error);
@@ -107,7 +119,7 @@ export const forgotPassword = (email) => {
 
 // datebase olusturma
 
-export const addUser = (tittle, image, content, user, newdate,navigate) => {
+export const addUser = (tittle, image, content, user, newdate, navigate) => {
   const db = getDatabase(app);
 
   const userRef = ref(db, "users/");
@@ -120,7 +132,7 @@ export const addUser = (tittle, image, content, user, newdate,navigate) => {
     user: user,
     newdate: newdate,
   });
-  navigate('/')
+  navigate("/");
   toastSuccessNotify("Datebase successfully created");
 };
 
@@ -143,7 +155,6 @@ export const useFetch = () => {
       setBlogList(userArray);
 
       setIsLoading(false);
-    
     });
   }, []);
   return { isLoadIng, blogList };
@@ -151,31 +162,26 @@ export const useFetch = () => {
 
 //veriyi silme
 
-export const DeleteUser = (id,navigate) => {
+export const DeleteUser = (id, navigate) => {
   const db = getDatabase(app);
   remove(ref(db, "users/" + id));
-  navigate('/')
+  navigate("/");
   toastSuccessNotify("Datebase successfully deleted");
   // Toastify('Deleted User')
 };
 
-
-
-
-
 // veriyi update etma
 
-export const UpdateUser = (id, tittle,image,content,user,navigate) => {
+export const UpdateUser = (id, tittle, image, content, user, navigate) => {
   const db = getDatabase(app);
   // const userRef = ref(db, "users/");
   const updates = {};
-  const heute=[new Date()]
-const a=heute.join(' ')
-console.log(a);
-const newdate= a.slice(4,15)
-  updates["users/" + id] = {id, image, tittle, content,user,newdate};
-  navigate('/')
+  const heute = [new Date()];
+  const a = heute.join(" ");
+  console.log(a);
+  const newdate = a.slice(4, 15);
+  updates["users/" + id] = { id, image, tittle, content, user, newdate };
+  navigate("/");
   toastSuccessNotify("Datebase successfully update");
   return update(ref(db), updates);
-  
 };
